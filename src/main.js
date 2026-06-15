@@ -86,8 +86,8 @@ const config = {
 
 // ── Bootstrap ──────────────────────────────────────────────────────────────
 async function bootstrap() {
-  // Hide HTML boot spinner (defined inline in index.html)
-  if (typeof window.__hideBoot === 'function') window.__hideBoot();
+  
+  
 
   try {
     await CrazyGamesSDK.init();
