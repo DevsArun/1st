@@ -1,26 +1,14 @@
 {
   "name": "mecha-kaiju-rush",
   "version": "1.0.0",
-  "description": "MECHA KAIJU RUSH — A production-ready 2D physics runner built with Phaser 3 + Matter.js",
+  "description": "MECHA KAIJU RUSH — 2D physics runner",
   "private": true,
-  "type": "module",
   "scripts": {
-    "dev":     "vite",
-    "build":   "vite build",
-    "preview": "vite preview",
-    "lint":    "eslint src --ext .js"
+    "dev": "npx serve . -p 3000 --no-clipboard",
+    "start": "npx serve . -p 3000 --no-clipboard"
   },
-  "dependencies": {
-    "phaser": "^3.80.1"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "vite": "^5.2.11",
-    "eslint": "^9.3.0",
-    "@eslint/js": "^9.3.0"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "keywords": ["phaser3", "matter.js", "html5-game", "crazygames"],
-  "license": "UNLICENSED"
+    "serve": "^14.2.3"
+  }
 }

@@ -5,20 +5,17 @@
   "forwardPorts": [3000],
   "portsAttributes": {
     "3000": {
-      "label": "MECHA KAIJU RUSH Game",
-      "onAutoForward": "openPreview",
+      "label": "MECHA KAIJU RUSH",
+      "onAutoForward": "openBrowser",
       "protocol": "http"
     }
   },
 
-  "postCreateCommand": "npm install",
+  "postCreateCommand": "npm install && npm run dev",
 
   "customizations": {
     "vscode": {
-      "extensions": [
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode"
-      ],
+      "extensions": ["dbaeumer.vscode-eslint"],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "bash"
       }
