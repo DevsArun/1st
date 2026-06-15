@@ -1,0 +1,44 @@
+{
+  "name": "MECHA KAIJU RUSH - Dev",
+
+  // Official Microsoft Node.js image — Node 20 LTS on Debian Bookworm
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20-bookworm",
+
+  // ── Port forwarding ───────────────────────────────────────────────────
+  // Vite dev server runs on 3000; Codespace will auto-detect and prompt
+  // to open in browser.
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "MECHA KAIJU RUSH (Vite)",
+      "onAutoForward": "openPreview",
+      "protocol": "http"
+    }
+  },
+
+  // ── After container is created: install deps ──────────────────────────
+  "postCreateCommand": "npm install",
+
+  // ── After container STARTS (every time): start the dev server ─────────
+  // Runs in background so terminal is immediately usable.
+  "postStartCommand": "npm run dev -- --host 0.0.0.0 --port 3000",
+
+  // ── VS Code extensions pre-installed in the Codespace ─────────────────
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",          // ESLint highlighting
+        "esbenp.prettier-vscode",          // Code formatting
+        "antfu.browse-lite"                // In-editor browser preview
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+
+  // ── Container user ────────────────────────────────────────────────────
+  "remoteUser": "node"
+}
