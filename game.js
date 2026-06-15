@@ -887,4 +887,5 @@ const config = {
   scene: [BootScene, PreloadScene, MainMenuScene, GarageScene, GameScene, GameOverScene]
 };
 
-new Phaser.Game(config);
+const game = new Phaser.Game(config);
+document.getElementById("fallback")?.classList.add("hidden");
