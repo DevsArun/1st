@@ -7,7 +7,8 @@
     "5173": {
       "label": "MECHA KAIJU RUSH Game",
       "onAutoForward": "openBrowser",
-      "protocol": "http"
+      "protocol": "http",
+      "visibility": "public"
     }
   },
 
