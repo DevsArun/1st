@@ -1,26 +1,22 @@
 {
   "name": "MECHA KAIJU RUSH",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:20-bookworm",
-
-  "forwardPorts": [3000],
+  "forwardPorts": [5173],
   "portsAttributes": {
-    "3000": {
-      "label": "MECHA KAIJU RUSH",
+    "5173": {
+      "label": "MECHA KAIJU RUSH Game",
       "onAutoForward": "openBrowser",
       "protocol": "http"
     }
   },
-
-  "postCreateCommand": "npm install && npm run dev",
-
+  "postCreateCommand": "npm install",
+  "postStartCommand": "npm run dev -- --host 0.0.0.0 &",
   "customizations": {
     "vscode": {
-      "extensions": ["dbaeumer.vscode-eslint"],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "bash"
       }
     }
   },
-
   "remoteUser": "node"
 }

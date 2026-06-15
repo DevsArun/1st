@@ -1,14 +1,17 @@
 {
   "name": "mecha-kaiju-rush",
   "version": "1.0.0",
-  "description": "MECHA KAIJU RUSH — 2D physics runner",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "npx serve . -p 3000 --no-clipboard",
-    "start": "npx serve . -p 3000 --no-clipboard"
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host"
   },
-  "dependencies": {},
+  "dependencies": {
+    "phaser": "3.80.1"
+  },
   "devDependencies": {
-    "serve": "^14.2.3"
+    "vite": "5.2.11"
   }
 }
