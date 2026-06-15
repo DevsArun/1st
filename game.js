@@ -368,7 +368,7 @@ class GameScene extends Phaser.Scene {
     // Suspension constraint
     this._susp=M.Constraint.create({
       bodyA:this._torso, bodyB:this._wheel,
-      pointA:{x:0,y:40}, pointB:{x:0,-44},
+      pointA:{x:0,y:40}, pointB:{x:0,y:-44},
       stiffness:0.12, damping:0.65, length:80
     });
     this.matter.world.add(this._susp);

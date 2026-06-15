@@ -1,24 +1,19 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: './',
-  server: {
-    host: '0.0.0.0',
-    port: 5173,
-    strictPort: true,
-    allowedHosts: 'all',
-    cors: true,
-    headers: {
-      'Cross-Origin-Embedder-Policy': 'credentialless',
-      'Cross-Origin-Opener-Policy': 'same-origin'
-    }
-  },
+  base: '/1st/',
   build: {
-    outDir: 'dist',
+    outDir: 'docs',
+    emptyOutDir: true,
     rollupOptions: {
       output: {
         manualChunks: { phaser: ['phaser'] }
       }
     }
+  },
+  server: {
+    host: '0.0.0.0',
+    port: 5173,
+    allowedHosts: 'all'
   }
 })
