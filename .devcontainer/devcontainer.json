@@ -1,6 +1,7 @@
 {
   "name": "MECHA KAIJU RUSH",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:20-bookworm",
+
   "forwardPorts": [5173],
   "portsAttributes": {
     "5173": {
@@ -9,8 +10,9 @@
       "protocol": "http"
     }
   },
-  "postCreateCommand": "npm install",
-  "postStartCommand": "npm run dev -- --host 0.0.0.0 &",
+
+  "postCreateCommand": "npm install && npm run dev",
+
   "customizations": {
     "vscode": {
       "settings": {
@@ -18,5 +20,6 @@
       }
     }
   },
+
   "remoteUser": "node"
 }
