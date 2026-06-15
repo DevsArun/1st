@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- ── Viewport: cover all device orientations without user-scalable zoom ── -->
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0,
+                 minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+
+  <!-- ── CrazyGames required meta ────────────────────────────────────────── -->
+  <meta name="application-name" content="MECHA KAIJU RUSH" />
+  <meta name="description"
+        content="Pilot a colossal mech through a post-apocalyptic wasteland. Crush everything." />
+
+  <!-- ── iOS / Android full-screen chrome removal ────────────────────────── -->
+  <meta name="apple-mobile-web-app-capable"        content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable"              content="yes" />
+  <meta name="theme-color"                         content="#0a0a0f" />
+
+  <!-- ── Favicon (swap with real asset later) ─────────────────────────────── -->
+  <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+
+  <title>MECHA KAIJU RUSH</title>
+
+  <style>
+    /* ── Hard reset ─────────────────────────────────────────── */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;           /* Prevent ALL scrollbars */
+      background: #0a0a0f;        /* Dark letterbox / pillarbox fill */
+      touch-action: none;         /* Prevent scroll/zoom gestures on mobile */
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    /* ── Phaser mounts its canvas here ─────────────────────── */
+    #game-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── The canvas Phaser creates ─────────────────────────── */
+    #game-container canvas {
+      display: block;
+      /* Phaser's ScaleManager handles sizing; we only ensure it renders crisp */
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+
+    /* ── Loading screen before Phaser boots ────────────────── */
+    #boot-screen {
+      position: fixed;
+      inset: 0;
+      background: #0a0a0f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+
+    #boot-screen.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #boot-screen .logo-text {
+      font-family: 'Impact', 'Arial Black', sans-serif;
+      font-size: clamp(1.5rem, 5vw, 3rem);
+      letter-spacing: 0.15em;
+      color: #ff4d00;
+      text-shadow:
+        0 0 20px #ff4d0088,
+        0 0 60px #ff4d0044;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    #boot-screen .spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid #ffffff18;
+      border-top-color: #ff4d00;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Pre-Phaser boot splash ───────────────────────────────────────────── -->
+  <div id="boot-screen" aria-label="Loading MECHA KAIJU RUSH">
+    <div class="logo-text">MECHA KAIJU RUSH</div>
+    <div class="spinner"></div>
+  </div>
+
+  <!-- ── Phaser canvas mount point ────────────────────────────────────────── -->
+  <div id="game-container"></div>
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       CrazyGames SDK
+       Swap the comment below with the real SDK script tag when submitting:
+       <script src="https://sdk.crazygames.com/crazygames-sdk-v3.js"></script>
+  ─────────────────────────────────────────────────────────────────────── -->
+  <!-- CRAZYGAMES_SDK_PLACEHOLDER -->
+
+  <!-- ── Game entry point (ES module) ─────────────────────────────────────── -->
+  <script type="module" src="./src/main.js"></script>
+
+  <!-- ── Hide boot screen once Phaser fires its first frame ───────────────── -->
+  <script>
+    window.__hideBoot = function () {
+      const el = document.getElementById('boot-screen');
+      if (el) el.classList.add('hidden');
+    };
+  </script>
+
+</body>
+</html>
